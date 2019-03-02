@@ -1,6 +1,7 @@
 cc_library_shared {
     name: "libopus",
     vendor_available: true,
+    host_supported: true,
     vndk: {
         enabled: true,
     },
@@ -16,8 +17,11 @@ cc_library_shared {
 
     sanitize: {
         integer_overflow: true,
+        misc_undefined: ["bounds"],
         diag: {
             integer_overflow: true,
+            misc_undefined: ["bounds"],
+            no_recover: ["bounds", "integer"],
         },
         blacklist: "libopus_blacklist.txt",
     },

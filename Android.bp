@@ -1,4 +1,4 @@
-cc_library_shared {
+cc_library {
     name: "libopus",
     vendor_available: true,
     host_supported: true,
@@ -338,6 +338,11 @@ cc_library_shared {
         },
     },
 
+    target: {
+        darwin: {
+            enabled: false,
+        },
+    },
     apex_available: [
         "//apex_available:platform", // used by libstagefright_soft_opusdec
         "com.android.media.swcodec",
